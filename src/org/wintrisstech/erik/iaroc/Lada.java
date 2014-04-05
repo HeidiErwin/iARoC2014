@@ -30,7 +30,8 @@ public class Lada extends IRobotCreateAdapter {
 		// song(0, new int[]{58, 10});
 	}
 
-	public void initialize() throws ConnectionLostException {
+	public void initialize() throws ConnectionLostException 
+	{
 		dashboard.log("===========Start===========");
 		readSensors(SENSORS_GROUP_ID6);
 		dashboard.log("iAndroid2014 version 140404A");
@@ -43,10 +44,14 @@ public class Lada extends IRobotCreateAdapter {
 	 * 
 	 * @throws ConnectionLostException
 	 */
-	public void loop() throws ConnectionLostException {
-		try {
+	public void loop() throws ConnectionLostException 
+	{
+		driveDirect(100, 100);
+		try 
+		{
 			sonar.read();
-		} catch (InterruptedException ex) {
+		} catch (InterruptedException ex) 
+		{
 		}
 		int lDistance = sonar.getLeftDistance();
 		if (lDistance != 0) {
