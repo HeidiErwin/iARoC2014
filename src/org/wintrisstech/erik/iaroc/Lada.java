@@ -8,6 +8,7 @@ import org.wintrisstech.sensors.UltraSonicSensors;
  * A Lada is an implementation of the IRobotCreateInterface, inspired by Vic's
  * awesome API. It is entirely event driven. Version 140404A...mods by Vic
  * @author Erik
+ * version 140405 mod A set to 500
  */
 public class Lada extends IRobotCreateAdapter {
 
@@ -46,13 +47,8 @@ public class Lada extends IRobotCreateAdapter {
 	 */
 	public void loop() throws ConnectionLostException 
 	{
-		driveDirect(100, 100);
-		try 
-		{
-			sonar.read();
-		} catch (InterruptedException ex) 
-		{
-		}
+		driveDirect(500, 500);
+		
 		int lDistance = sonar.getLeftDistance();
 		if (lDistance != 0) {
 			dashboard.log("L: " + sonar.getLeftDistance());
